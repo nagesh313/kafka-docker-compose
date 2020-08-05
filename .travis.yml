@@ -4,33 +4,7 @@ services:
 script: 
   - docker ps 
   - heroku auth:token
-  - docker build -t registry.heroku.com/test-jira-app/web .
-#   - docker push registry.heroku.com/test-jira-app/web
+  - docker build -t registry.heroku.com/kafka-docker-compose/kafka .
   - heroku container:login
-  - heroku container:push web --app=test-jira-app
-  - heroku container:release web --app=test-jira-app
-#   - heroku container:login
-#   - docker images ls	    - heroku login
-#   - ( echo "$HE"   echo "$HP" ) | heroku login
-#     - docker build -t test-jira-app .    
-#     - docker ps 
-#     - heroku login
-#     - heroku container:login
-#     - heroku container:push test-jira-app
-#     - heroku container:release test-jira-app
-#     - echo "$REGISTRY_PASS" | docker login -u $REGISTRY_USER -p $REGISTRY_PASS registry.heroku.com
-#   - docker login -u $REGISTRY_USERNAME -p $REGISTRY_PASS registry.heroku.com
-#   - docker login --username=$REGISTRY_USER --password=$REGISTRY_PASS registry.heroku.com
-#   - heroku container:push test-jira-app --app quiet-beach-04344
-# deploy:
-#  provider: heroku
-#  run:
-#      -(
-#       echo "$HE"  # or you can plaintext it, if you're feeling adventurous
-#       echo "$HP"
-#         ) | heroku login
-#   - heroku container:login
-#   - heroku container:push test-jira-app
-#   - heroku container:release test-jira-app
-#  api_key: $HEROKU_API_KEY
-#  app: test-jira-app
+  - heroku container:push kafka --app=kafka-docker-compose
+  - heroku container:release kafka --app=kafka-docker-compose
