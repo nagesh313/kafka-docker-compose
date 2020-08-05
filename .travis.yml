@@ -4,7 +4,7 @@ services:
 script: 
   - docker ps 
   - heroku auth:token
-  - docker build -t registry.heroku.com/kafka-docker-compose/kafka .
+  - docker build -t registry.heroku.com/kafka-docker-compose/web .
   - heroku container:login
-  - heroku container:push kafka --app=kafka-docker-compose
-  - heroku container:release kafka --app=kafka-docker-compose
+  - heroku container:push web --app=kafka-docker-compose
+  - heroku container:release web --app=kafka-docker-compose
